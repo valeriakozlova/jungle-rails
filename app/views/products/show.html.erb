@@ -27,21 +27,30 @@
 
       <div class="col-sm-8">
         <dl class="dl-horizontal">
-        <% @product.reviews.each do |review| %>
+        <% @product.reviews.reverse.each do |review| %>
         <dt>Rating</dt>
         <dd><%= review.rating.to_i%></dd>
         <dt>Review</dt>
         <dd><%= review[:description]%></dd>
+        <dd>
+        <% if review.user == current_user %>
+        <%= link_to 'Delete', [review.product, review],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+        <dd>
+        <% end %>
         <% end %>
         </dl>
       </div>
 
-
+    <% if current_user %>
+      <%= form_for(@review, url: product_reviews_path(@product)) do |f| %>
+        Rating: <%= f.select :rating, options_for_select([1, 2, 3, 4, 5]), :prompt => "Select One", :class => 'genForm_dropBox' %>
+        Review: <%= f.text_area :description %>
+        <%= f.submit "Post" %>
+      <% end %>
+    <% end %>
 
     </div>
-
-
-
   </article>
-
 </section>
