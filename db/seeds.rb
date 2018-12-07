@@ -132,5 +132,76 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+prod1 = Product.find_by id: 12
+prod2 = Product.find_by id: 9
+prod3 = Product.find_by id: 7
+prod4 = Product.find_by id: 4
+
+Review.destroy_all
+
+prod1.reviews.create!({
+  rating: 5,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod1.reviews.create!({
+  rating: 1,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod1.reviews.create!({
+  rating: 3,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod1.reviews.create!({
+  rating: 5,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod2.reviews.create!({
+  rating: 4,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod2.reviews.create!({
+  rating: 5,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod3.reviews.create!({
+  rating: 4,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod3.reviews.create!({
+  rating: 2,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod3.reviews.create!({
+  rating: 3,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod4.reviews.create!({
+  rating: 4,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod4.reviews.create!({
+  rating: 4,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod4.reviews.create!({
+  rating: 5,
+  description: Faker::Hipster.sentence(1)
+})
+
+prod4.reviews.create!({
+  rating: 2,
+  description: Faker::Hipster.sentence(1)
+})
 
 puts "DONE!"
