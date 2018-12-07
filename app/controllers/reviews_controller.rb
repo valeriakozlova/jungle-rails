@@ -16,10 +16,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find params[:id]
-    if @review.user = current_user
-      @review.destroy
-      redirect_to :back
-    end
+    @review.destroy
+    redirect_to :back
+    
   end
 
   private
