@@ -139,6 +139,7 @@ prod4 = Product.find_by id: 4
 
 Review.destroy_all
 
+
 prod1.reviews.create!({
   rating: 5,
   description: Faker::Hipster.sentence(1)

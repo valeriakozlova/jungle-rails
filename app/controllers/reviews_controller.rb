@@ -9,9 +9,8 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:success] = "Review was successfully added."
       redirect_to product_path(@product)
-    else
-      redirect_to product_path(@product)
     end
+ 
   end
 
   def destroy
